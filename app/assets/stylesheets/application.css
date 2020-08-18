@@ -16,14 +16,35 @@
 }
 
 body {
-    margin: 0;
+    margin: 60px 0 0 0;
     font-family: var(--body-font);
     color: var(--text-color);
     background: var(--background-color);
 }
 
-.site-title {
+header {
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* top bottom left right z-index */
+
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    height: 54px;
+
+    padding: 0 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    margin: 0;
+    font-family: var(--display-font);
+    font-size: 28px;
 }
 
 .header-search-bar {

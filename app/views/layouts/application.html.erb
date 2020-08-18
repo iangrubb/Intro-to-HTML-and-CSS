@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HtmlCssIntro</title>
+    <title><%= @dog ? "#{@dog.name} (@#{@dog.slug}) · " : nil %> Dogstagram photos and videos</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,9 +9,19 @@
 
     <%= stylesheet_link_tag 'application', 'dog', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+    <%= favicon_link_tag asset_path("doge.png") %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1 class="site-title">Dogstagram</h1>
+      <input class="header-search-bar" type="text" placeholder="search">
+      <div>
+        <button>Log In</button>
+        <button>Sign Up</button>
+      </div>
+    </header>
+    <%= yield %>·
   </body>
 </html>
