@@ -1,2 +1,30 @@
 
-<h2> <%= @dog.name %> </h2>
+
+<h1 class="site-title">Dogstagram</h1>
+<input class="header-search-bar" type="text" placeholder="search">
+<button>Log In</button>
+<button>Sign Up</button>
+
+<%= image_tag @dog.profile_photo, class: "profile-photo" %>
+
+<h2 class="dog-slug"><%= @dog.slug %> </h2>
+
+<button>Follow</button>
+
+<a href="/"><%= @dog.post_count%> posts</a>
+<a href="/"><%= @dog.follower_count%> followers</a>
+<a href="/"><%= @dog.following_count%> following</a>
+
+<h1 class="dog-name"> <%= @dog.name %> </h1>
+
+<p class="dog-description"><%= @dog.description %></p>
+
+<a class="featured-link" href="/"><%= @dog.link %></a>
+
+
+<% @dog.posts.each do |post| %>
+    <%= image_tag post.photo, class: "post-picture" %>
+    <span>💕 <%= post.like_count %></span>
+    <span>💬 <%= post.comment_count %></span>
+<% end %>
+
