@@ -1,8 +1,9 @@
 
 #front-matter {
+    padding: 10px 0 0 0;
     display: grid;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 110px 1fr;
+    grid-template-rows: 100px auto auto;
     grid-template-areas:
         "photo heading"
         "information information"
@@ -10,26 +11,13 @@
     ;
 }
 
-@media (min-width: 600px) {
-    #front-matter {
-        grid-template-columns: 200px 1fr;
-        grid-template-areas:
-            "photo heading"
-            "photo statistics"
-            "photo information"
-            
-        ;
-    }
-}
-
-#posts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0.5vw;
-}
-
 #heading {
     grid-area: heading;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 0 16px 8px;
 }
 
 #statistics {
@@ -45,36 +33,123 @@
 
 #information {
     grid-area: information;
-    padding: 8px;
+    padding: 16px;
+    font-size: 14px;
 }
-
-
-
 
 .profile-photo {
     grid-area: photo;
-    width: 77px;
-    height: 77px;
+    place-self: center center;
+
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);    
 }
 
 .dog-slug {
-
+    font-weight: 400;
+    font-size: 26px;
+    margin: 0 0 4px 0;
 }
 
 .dog-name {
-    margin: 4px 0;
+    margin: 0;
+    font-size: 14px;
 }
 
 .dog-description {
-
+    margin: 2px 0;
 }
 
-.featured-link {
 
+.statistic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 14px;
 }
 
+.stat-count {
+    color: var(--text-color);
+}
+
+.stat-label {
+    font-weight: 400;
+    color: var(--secondary-text-color);
+}
+
+@media (min-width: 735px) {
+    #front-matter {
+        padding: 32px;
+        margin: 0 auto;
+        max-width: 950px;
+        grid-template-columns: 35% 65%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "photo heading"
+            "photo statistics"
+            "photo information"
+            
+        ;
+    }
+
+    #heading {
+        flex-direction: row;
+        justify-content: start;
+        margin: 0 0 16px 0;
+    }
+
+    .dog-slug {
+        margin: 0 16px 0 0;
+    }
+
+    #statistics {
+        border: none;
+        justify-content: start;
+        height: auto;
+    }
+
+    .statistic {
+        flex-direction: row;
+        margin: 0 32px 0 0;
+        font-size: 16px;
+    }
+
+    .stat-label {
+        color: var(--text-color);
+        margin: 0 0 0 4px;
+        
+    }
+
+    #information {
+        padding: 16px 16px 16px 0;
+        font-size: 16px;
+    }
+
+    .dog-name {
+        font-size: 16px;
+        margin: 0 0 4px 0;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        margin: -50px 0 0 -50px;
+    }
+    
+}
+
+
+
+
+
+#posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5vw;
+}
 
 
 .post-wrapper {
@@ -82,6 +157,7 @@
     height: 33vw;
 
     position: relative;
+    cursor: pointer;
 }
 
 .post-wrapper:hover > .post-data {
@@ -117,4 +193,34 @@
 .post-data > span {
     color: white;
     font-weight: 700;
+}
+
+@media (min-width: 735px) {
+
+
+    #posts {
+        grid-gap: 30px;
+        
+        width: 100vw;
+        max-width: 950px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .post-wrapper {
+        width: calc( (100vw - 100px) / 3 );
+        height: calc( (100vw - 100px) / 3 );
+
+        max-width: calc( 850px / 3 );
+        max-height: calc( 850px / 3 );
+    }
+
+    .post-data {
+        flex-direction: row;
+    }
+
+    .post-data > span {
+        margin: 0 8px;
+    }
+
 }

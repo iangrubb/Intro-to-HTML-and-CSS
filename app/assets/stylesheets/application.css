@@ -2,7 +2,7 @@
 :root {
     --button-color: #0097F2;
     --background-color: #FAFAFA;
-    --border-color: #DBDBDB;
+    --border-color: #cacaca;
     --text-color: #262626;
     --secondary-text-color: #8E8E8E;
     --link-color: #003869;
@@ -22,20 +22,68 @@ body {
     background: var(--background-color);
 }
 
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 700;
+}
+
+a:active {
+    filter: saturate(50%) brightness(190%);
+}
+
+button {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700; 
+}
+
+button:active {
+    outline: none;
+    filter: saturate(50%) brightness(140%);
+}
+
+button:focus {
+    outline: none;
+}
+
+.primary-button {
+    background: var(--button-color);
+    color: white
+}
+
+.secondary-button {
+    background: white;
+    color: var(--button-color);
+}
+
+
+
+
+
 header {
 
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    /* top bottom left right z-index */
+    z-index: 2;
 
     background: white;
     border-bottom: 1px solid var(--border-color);
     height: 54px;
 
-    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+}
 
+#header-contents {
+    width: 100%;
+    max-width: 950px;
+    padding: 0 10px 0 20px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,8 +93,46 @@ header {
     margin: 0;
     font-family: var(--display-font);
     font-size: 28px;
+    font-weight: 400;
 }
 
 .header-search-bar {
+    display: none;
 
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 5px 16px;
+    width: 210px;
+
+    text-align: center;
+    
+}
+
+.header-search-bar::placeholder {
+    color: var(--secondary-text-color);
+    letter-spacing: 0.2px;
+    font-size: 14.5px;
+}
+
+.header-search-bar:focus {
+    text-align: left;
+    outline: none;
+}
+
+@media (min-width: 525px) {
+
+    .header-search-bar {
+        display: block;
+    }
+
+}
+
+
+.header-buttons {
+    display: flex;
+}
+
+.header-buttons > button {
+    margin: 0 0 0 8px;
 }

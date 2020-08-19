@@ -7,7 +7,7 @@
 
     <div id="heading">
         <h2 class="dog-slug"><%= @dog.slug %> </h2>
-        <button>Follow</button>
+        <button class="primary-button">Follow</button>
     </div>
 
     
@@ -17,13 +17,22 @@
 
         <p class="dog-description"><%= @dog.description %></p>
 
-        <a class="featured-link" href="/"><%= @dog.link %></a>
+        <a href="/"><%= @dog.link %></a>
     </div>
 
     <div id="statistics">
-        <a href="/"><%= @dog.post_count%> posts</a>
-        <a href="/"><%= @dog.follower_count%> followers</a>
-        <a href="/"><%= @dog.following_count%> following</a>
+        <a class="statistic" href="/">
+            <span class="stat-count"><%= @dog.post_count%></span>
+            <span class="stat-label">posts</span>
+        </a>
+        <a class="statistic" href="/">
+            <span class="stat-count"><%= @dog.follower_count%></span>
+            <span class="stat-label">followers</span>
+        </a>
+        <a class="statistic" href="/">
+            <span class="stat-count"><%= @dog.following_count%></span>
+            <span class="stat-label">following</span>
+        </a>
     </div>
 
 </div>
